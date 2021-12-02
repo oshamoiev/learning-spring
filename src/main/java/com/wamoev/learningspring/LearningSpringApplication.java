@@ -1,6 +1,10 @@
 package com.wamoev.learningspring;
 
+import com.wamoev.learningspring.data.entity.Guest;
+import com.wamoev.learningspring.data.entity.Reservation;
 import com.wamoev.learningspring.data.entity.Room;
+import com.wamoev.learningspring.data.repository.GuestRepository;
+import com.wamoev.learningspring.data.repository.ReservationRepository;
 import com.wamoev.learningspring.data.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -25,6 +29,30 @@ public class LearningSpringApplication {
         @GetMapping
         public Iterable<Room> getRooms() {
             return roomRepository.findAll();
+        }
+    }
+
+    @RestController
+    @RequestMapping("/guests")
+    public class GuestController {
+        @Autowired
+        private GuestRepository guestRepository;
+
+        @GetMapping
+        public Iterable<Guest> getRooms() {
+            return guestRepository.findAll();
+        }
+    }
+
+    @RestController
+    @RequestMapping("/reservations")
+    public class ReservationController {
+        @Autowired
+        private ReservationRepository reservationRepository;
+
+        @GetMapping
+        public Iterable<Reservation> getRooms() {
+            return reservationRepository.findAll();
         }
     }
 }
