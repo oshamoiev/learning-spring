@@ -1,7 +1,7 @@
 package com.wamoev.learningspring.data.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 public class Reservation {
